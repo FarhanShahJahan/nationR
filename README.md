@@ -2,7 +2,10 @@
 
 [![Build Status](https://travis-ci.org/FarhanShahJahan/nationR.svg?branch=master)](https://travis-ci.org/FarhanShahJahan/nationR)
 
-nationR is an R package that provides functions to transform input data between different formats related to nationality, country name, ISO code (Alpha 2 & Alpha 3), and UN/Numeric code. It allows you to easily convert between these representations.
+nationR is an R package that provides functions to transform input data between different formats related to nationality, country name, ISO code (Alpha 2 & Alpha 3), and UN/Numeric code. It allows you to easily convert between these representations. 
+
+Source:
+1) https://www.nationsonline.org/oneworld/country_code_list.htm
 
 ## Installation
 
