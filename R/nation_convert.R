@@ -1,23 +1,21 @@
-#' Convert input to UN code
+#' Convert input to any target value inserted
 #'
-#' This function takes a vector of nationalities and returns a vector of
-#' corresponding country names.
+#' This function takes input that can be Country, Nationality, Alpha2, Alpha3, UN_code and to be transformed to be any of them
 #'
-#' @param nationality Vector of nationalities to be converted
-#' @param alpha2 Vector of alpha 2 code to be converted
-#' @param alpha3 Vector of alpha 3 code to be converted
-#' @param UN_code Vector of UN Code to be converted
-#' @param country Vector of country to be converted
+#' @param origin category of original data
+#' @param target category of target data
+#' @param origin_data Vector of data that wanted to be transformed
 #'
 #' @author Farhan Shah Jahan
 #'
 #' @return Vector of corresponding country names
 #' @examples
-#' nationality <- c("American", "Canadian")
-#' convert2un_code(nationality)
+#' country_list <- c('India', 'Malaysia', 'Canada')
+#' nation_convert(origin = 'Country', target = 'UN_code', origin_data = country_list)
 #' @export
 #'
-convert2un_code <- function(country, alpha2, alpha3) {
+nation_convert <- function(origin, target, origin_data) {
+library(dplyr)
   data <- "Country,Nationality,Alpha2,Alpha3,UN_code
 Afghanistan,Afghan,AF,AFG,4
 Albania,Albanian,AL,ALB,8
@@ -137,19 +135,30 @@ Zimbabwe,Zimbabwean,ZW,ZWE,716"
 
   ctry_data <- read.csv(text = data)
 
-  if(!missing(country)){
-    result <- ctry_data[ctry_data[['Country']] == country, ]$UN_code
-  }else if(!missing(nationality)){
-    result <- ctry_data[ctry_data[['Nationality']] == nationality, ]$UN_code
-  }else if(!missing(alpha2)){
-    result <- ctry_data[ctry_data[['Alpha2']] == alpha2, ]$UN_code
-  }else if(!missing(alpha3)){
-    result <- ctry_data[ctry_data[['Alpha3']] == alpha3, ]$UN_code
+  if(!is.data.frame(origin_data)){
+    origin_data <- unlist(origin_data) #if the input is list()
+    origin_data <- data.frame(origin = origin_data)
   }
+
+  names(origin_data) <- origin
+
+  result <- left_join(origin_data, ctry_data, by = origin)
 
   if(length(result) == 0){
     result <- 'Unknown'
   }
 
-  return(result)
+  # result <- result[, target]
+  if (target == 'Country') {
+    return(result$Country)
+  }else if (target == 'Nationality') {
+    return(result$Nationality)
+  }else if (target == 'Alpha2') {
+    return(result$Alpha2)
+  }else if (target == 'Alpha3') {
+    return(result$Alpha3)
+  }else{
+    return(result$UN_code)
+  }
 }
+
