@@ -26,5 +26,8 @@ Usage
 library(NationR)
 
 country_list <- c('India', 'Malaysia', 'Canada')
+
+# the origin & target can be Country, Nationality, Alpha2, Alpha3 or UN_code
 nation_convert(origin = 'Country', target = 'UN_code', origin_data = country_list)
+
 print(country_names)
