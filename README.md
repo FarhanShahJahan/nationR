@@ -25,6 +25,6 @@ Usage
 ```R
 library(NationR)
 
-nationality_list <- c("American", "Canadian")
-country_names <- convert2country(nationality = nationality_list)
+country_list <- c('India', 'Malaysia', 'Canada')
+nation_convert(origin = 'Country', target = 'UN_code', origin_data = country_list)
 print(country_names)
