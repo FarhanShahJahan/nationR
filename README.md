@@ -23,7 +23,7 @@ devtools::install_github("FarhanShahJahan/nationR")
 Usage
 
 ```R
-library(nationR)
+library(NationR)
 
 nationality_list <- c("American", "Canadian")
 country_names <- convert2country(nationality = nationality_list)
