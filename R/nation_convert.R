@@ -68,8 +68,8 @@ nation_convert <- function(origin, target, origin_data) {
   Cocos (Keeling) Islands,Cocos Island,CC,CCK,166
   Colombia,Colombian,CO,COL,170
   Comoros,Comoran,KM,COM,174
-  Congo (Republic of the),Congolese,CG,COG,178
-  Congo (Democratic Republic of the),Congolese,CD,COD,180
+  Republic of the Congo,Congolese ROC,CG,COG,178
+  Democratic Republic of the Congo,Congolese,CD,COD,180
   Cook Islands,Cook Island,CK,COK,184
   Costa Rica,Costa Rican,CR,CRI,188
   Côte d\'Ivoire,Ivorian,CI,CIV,384
@@ -139,7 +139,6 @@ nation_convert <- function(origin, target, origin_data) {
   Korea (Republic of),South Korean,KR,KOR,410
   Kuwait,Kuwaiti,KW,KWT,414
   Kyrgyzstan,Kyrgyzstani,Kyrgyz,Kirgiz,Kirghiz,KG,KGZ,417
-  Lao People\'s Democratic Republic,Lao,LA,LAO,418
   Laos,Lao,LA,LAO,418
   Latvia,Latvian,LV,LVA,428
   Lebanon,Lebanese,LB,LBN,422
@@ -266,6 +265,9 @@ nation_convert <- function(origin, target, origin_data) {
   Yemen,Yemeni,YE,YEM,887
   Zambia,Zambian,ZM,ZMB,894
   Zimbabwe,Zimbabwean,ZW,ZWE,716"
+
+  # cause prob
+  # Lao People\'s Democratic Republic,Lao,LA,LAO,418
 
   ctry_data <- read.csv(text = data)
 
